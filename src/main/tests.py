@@ -22,8 +22,8 @@ def product_gen():
         product_title = random.choice(product_title_list)
         product_obj = Product(title=f"{product_title} N{number}",
                              description=f"Описание {product_title} N{number}",
-                             price=random.randint(100, 900),
-                              seller=sel_1)
+                             price=random.randint(100, 900), seller=sel_1,
+                              token_id = random.randint(1000000000000000, 10000000000000000))
         product_obj.save()
 
 def product_print():

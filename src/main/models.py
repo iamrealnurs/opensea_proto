@@ -18,6 +18,7 @@ class Product(models.Model):
     description = models.TextField(verbose_name="Описание товара")
     price = models.PositiveIntegerField(verbose_name="Стоимость товара")
     seller = models.ForeignKey(Seller, on_delete=models.CASCADE)
+    token_id = models.PositiveIntegerField(verbose_name="Token ID", null=True)
 
 
     def __str__(self):

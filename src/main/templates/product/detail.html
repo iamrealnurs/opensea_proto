@@ -5,12 +5,14 @@
 
 {% block content %}
     <h1>Товар {{ object.title }}</h1>
+        <img src="https://picsum.photos/200/200.jpg" alt="image" style="width: 500px;">
     <div class="row">
         <div class="col-md-3">
             <p>{{ object.title }}</p>
             <p>{{ object.description }}</p>
             <p>{{ object.price }}</p>
             <p>{{ object.seller }}</p>
+            <p>{{ object.token_id }}</p>
             <p>{{ object.seller.blockchain_network_name }}</p>
             <p>{{ object.seller.blockchain_wallet_address }}</p>
         </div>
