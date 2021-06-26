@@ -25,6 +25,7 @@ def product_gen():
                              price=random.randint(100, 900), seller=sel_1,
                               token_id = random.randint(1000000000000000, 10000000000000000))
         product_obj.save()
+        product_obj.get_remote_image()
 
 def product_print():
     from main.models import Product
@@ -35,6 +36,9 @@ def product_print():
 def product_deleter():
     from main.models import Product
     Product.objects.all().delete()
+
+if Product.objects.all():
+    product_deleter()
 
 product_gen()
 product_print()
