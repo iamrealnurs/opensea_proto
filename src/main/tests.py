@@ -1,8 +1,17 @@
 from django.test import TestCase
-from main.models import Product
+from main.models import Product, Seller
 from django.contrib.auth.models import User
 
 import pprint
+
+if Seller.objects.all():
+    Seller.objects.all().delete()
+
+sel_1 = Seller.objects.create_user(username="Нурсултан Кужагалиев", password="123456", blockchain_network_name='Ethereum', blockchain_wallet_address='aserfe12343wreqrw')
+sel_1.save()
+
+sel_2 = Seller.objects.create_user(username="Михаил Бородин", password="123456", blockchain_network_name='Ethereum', blockchain_wallet_address='wiy4cgnr34crq1231231')
+sel_2.save()
 
 def product_gen():
     from main.models import Product
@@ -13,7 +22,8 @@ def product_gen():
         product_title = random.choice(product_title_list)
         product_obj = Product(title=f"{product_title} N{number}",
                              description=f"Описание {product_title} N{number}",
-                             price=random.randint(100, 900))
+                             price=random.randint(100, 900),
+                              seller=sel_1)
         product_obj.save()
 
 def product_print():
