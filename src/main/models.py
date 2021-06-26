@@ -3,9 +3,9 @@ from datetime import timezone
 from django.db import models
 
 class Product(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
-    price = models.PositiveIntegerField()
+    title = models.CharField(max_length=200, unique=True, verbose_name="Название товара")
+    description = models.TextField(verbose_name="Описание товара")
+    price = models.PositiveIntegerField(verbose_name="Стоимость товара")
 
     def __str__(self):
         return self.title
